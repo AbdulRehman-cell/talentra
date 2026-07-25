@@ -779,3 +779,20 @@ footer.footer-links {
     white-space: nowrap;
   }
 }
+
+/* ── Fixes: mobile nav toggle (beat inline styles) + hero legibility ── */
+@media (max-width: 780px) {
+  .nav-toggle { display: inline-flex !important; }
+  header nav, .site-header nav, .navbar nav, header .nav-links {
+    display: none !important; position: absolute !important; top: 100%; left: 0; right: 0;
+    flex-direction: column !important; align-items: flex-start !important; gap: .15rem !important;
+    background: color-mix(in srgb, var(--bg, #212c2e) 97%, transparent); padding: .75rem 1.25rem 1rem;
+    border-top: 1px solid var(--border, rgba(255,255,255,.12)); box-shadow: 0 18px 34px -22px rgba(0,0,0,.6); max-height: 76vh; overflow-y: auto;
+  }
+  header nav.nav-open, .site-header nav.nav-open, .navbar nav.nav-open, header .nav-links.nav-open { display: flex !important; }
+  header nav ul, .site-header nav ul, .navbar nav ul { flex-direction: column !important; align-items: flex-start !important; width: 100%; }
+  header nav a, .site-header nav a, .navbar nav a { width: 100%; padding: .55rem 0; }
+}
+.hero:has(.hero-bg)::after, .hero-section:has(.hero-bg)::after { background: linear-gradient(180deg, rgba(8,10,14,.5), rgba(8,10,14,.82)) !important; }
+.hero:has(.hero-bg) h1, .hero:has(.hero-bg) h2, .hero:has(.hero-bg) h3, .hero:has(.hero-bg) p, .hero:has(.hero-bg) .eyebrow, .hero:has(.hero-bg) .hero-subtitle, .hero:has(.hero-bg) .lead, .hero:has(.hero-bg) li { color: #ffffff !important; }
+.hero:has(.hero-bg) .hero-subtitle, .hero:has(.hero-bg) .muted { color: rgba(255,255,255,.86) !important; }
