@@ -1,0 +1,23 @@
+# Render Blueprint — deploy via "New +" > "Blueprint" and point to this repo
+services:
+  - type: web
+    name: talentra
+    env: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+
+# Optional: managed MongoDB via Render is not native — use MongoDB Atlas
+# and set MONGO_URI in the Render dashboard as a secret.
