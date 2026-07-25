@@ -24,12 +24,10 @@ export default function Jobs() {
     fetchJobs()
   }, [])
 
-  // Filtered jobs list by type or all
   const filteredJobs = jobs?.filter(
     (job) => filter === 'all' || (job.type?.toLowerCase() || '') === filter
   )
 
-  // Collect unique job types for filtering (lowercase)
   const jobTypesSet = new Set(jobs?.map(j => (j.type || '').toLowerCase()).filter(Boolean))
   const jobTypes = Array.from(jobTypesSet)
 
@@ -47,7 +45,7 @@ export default function Jobs() {
       </section>
 
       <section className="section" aria-label="Job type filter">
-        <div className="container" style={{ maxWidth: 680, marginBottom: 24, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="container" style={{ maxWidth: 800, marginBottom: 24, display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
           <button
             className={`btn btn-ghost${filter === 'all' ? ' active' : ''}`}
             onClick={() => setFilter('all')}
@@ -105,7 +103,7 @@ export default function Jobs() {
                       {(job.description || '').slice(0, 130)}{(job.description && job.description.length > 130) ? '...' : ''}
                     </p>
                   </div>
-                  <div style={{ marginTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ marginTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span className="badge" style={{ textTransform: 'uppercase', fontWeight: 700, fontSize: '0.75rem' }}>
                       {job.type ?? 'Position'}
                     </span>
@@ -126,21 +124,21 @@ export default function Jobs() {
       </section>
 
       <section className="section" aria-label="How to apply" style={{ backgroundColor: 'var(--surface-2)', color: 'var(--text)' }}>
-        <div className="container" style={{ maxWidth: 820 }}>
-          <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.7rem)', marginBottom: 24 }}>
+        <div className="container" style={{ maxWidth: 900 }}>
+          <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.7rem)', marginBottom: 48, textAlign: 'center' }}>
             <span style={{ color: 'var(--primary)' }}>Apply</span> in 3 simple steps
           </h2>
-          <ol style={{ display: 'flex', gap: '3rem', listStyle: 'none', padding: 0, margin: 0, justifyContent: 'space-between', fontWeight: 500 }}>
-            <li className="step" style={{ flex: 1, textAlign: 'center' }}>
-              <div className="step-num" style={{ marginBottom: 12, color: 'var(--primary)', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em' }}>1</div>
+          <ol className="grid grid-3" style={{ listStyle: 'none', padding: 0, margin: 0, fontWeight: 500 }}>
+            <li className="step" style={{ textAlign: 'center', padding: '2rem' }}>
+              <div className="step-num" style={{ margin: '0 auto 1.5rem', color: 'var(--on-primary)', fontSize: '1rem', fontWeight: 700 }}>1</div>
               <p>Browse and find your ideal warehouse or logistics role.</p>
             </li>
-            <li className="step" style={{ flex: 1, textAlign: 'center' }}>
-              <div className="step-num" style={{ marginBottom: 12, color: 'var(--primary)', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em' }}>2</div>
+            <li className="step" style={{ textAlign: 'center', padding: '2rem' }}>
+              <div className="step-num" style={{ margin: '0 auto 1.5rem', color: 'var(--on-primary)', fontSize: '1rem', fontWeight: 700 }}>2</div>
               <p>Submit your application directly through the job details page.</p>
             </li>
-            <li className="step" style={{ flex: 1, textAlign: 'center' }}>
-              <div className="step-num" style={{ marginBottom: 12, color: 'var(--primary)', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em' }}>3</div>
+            <li className="step" style={{ textAlign: 'center', padding: '2rem' }}>
+              <div className="step-num" style={{ margin: '0 auto 1.5rem', color: 'var(--on-primary)', fontSize: '1rem', fontWeight: 700 }}>3</div>
               <p>Our team will contact you promptly to guide you next.</p>
             </li>
           </ol>

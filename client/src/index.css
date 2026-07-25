@@ -607,10 +607,12 @@ footer.footer-links {
 
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: column;
-    gap: calc(var(--gap) / 2);
-    padding-left: calc(var(--gap) / 2);
-    padding-right: calc(var(--gap) / 2);
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: var(--gap);
+    padding-left: var(--gap);
+    padding-right: var(--gap);
   }
 }
 
@@ -623,6 +625,7 @@ footer.footer-links {
 }
 
 /* ── Claude QA polish ── */
+
 .admin {
   max-width: var(--maxw);
   margin-inline: auto;

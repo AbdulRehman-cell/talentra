@@ -14,7 +14,7 @@ export default function App() {
           <a href="/" className="brand" aria-label="talentra homepage" style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 700, fontSize: '1.8rem', textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.06em', textDecoration: 'none' }}>
             talen<span aria-hidden="true" style={{ color: 'var(--text)' }}>tra</span>
           </a>
-          <nav aria-label="Primary navigation" style={{ display: 'flex', gap: '1.5rem', fontWeight: 700, fontFamily: "'Bebas Neue', cursive", fontSize: '1rem', textTransform: 'uppercase' }}>
+          <nav aria-label="Primary navigation" className="main-nav-menu" style={{ display: 'flex', gap: '1.5rem', fontWeight: 700, fontFamily: "'Bebas Neue', cursive", fontSize: '1rem', textTransform: 'uppercase' }}>
             <NavLink
               to="/"
               className={({ isActive }) => isActive ? 'active' : ''}
@@ -83,7 +83,7 @@ export default function App() {
       </main>
 
       <footer className="footer-links" style={{ backgroundColor: 'var(--surface)', color: 'var(--muted)', padding: '1.5rem 0', fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '0.9rem' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', maxWidth: '1180px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', maxWidth: '1180px' }}>
           <div>
             &copy; {new Date().getFullYear()} Talentra. All rights reserved.
           </div>
